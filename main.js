@@ -1,11 +1,14 @@
-function tocaSomPow() {
-    document.querySelector('#som_tecla_pom').play();
+function tocaSom(tecla) {
+    let idAudio = '#som_tecla_';
+
+    let nomeSom = tecla.innerHTML.toLowerCase();
+    idAudio += nomeSom;
+
+    document.querySelector(idAudio).play();
 }
 
-document.querySelector('.tecla_pom').onclick = tocaSomPow;
+const listaDeTeclas = document.querySelectorAll('.tecla');
 
-function tocaSomClap() {
-    document.querySelector('#som_tecla_clap').play();
-}
-
-document.querySelector('.tecla_clap').onclick = tocaSomClap;
+listaDeTeclas.forEach( (tecla) => {
+    tecla.onclick = function() { tocaSom(tecla) };
+})
