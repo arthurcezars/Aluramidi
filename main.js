@@ -1,8 +1,5 @@
 function tocaSom(tecla) {
-    let idAudio = '#som_tecla_';
-
-    let nomeSom = tecla.innerHTML.toLowerCase();
-    idAudio += nomeSom;
+    let idAudio = `#som_${tecla}`;
 
     document.querySelector(idAudio).play();
 }
@@ -10,5 +7,5 @@ function tocaSom(tecla) {
 const listaDeTeclas = document.querySelectorAll('.tecla');
 
 listaDeTeclas.forEach( (tecla) => {
-    tecla.onclick = function() { tocaSom(tecla) };
+    tecla.onclick = function() { tocaSom(tecla.classList[1]) };
 })
